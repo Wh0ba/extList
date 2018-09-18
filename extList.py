@@ -10,11 +10,10 @@ mypath = os.path.realpath(sys.argv[1])
 extDict = dict()
 
 try:
-	roms = [f for f in listdir(mypath) if isfile(join(mypath, f))]
-	gbaGames = 0
-	gbcGames = 0
-	for rom in roms:
-		ext = os.path.splitext(rom)[1].lower()
+	filesindir = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+	
+	for filee in filesindir:
+		ext = os.path.splitext(filee)[1].lower()
 		#print ext
 		if ext in extDict:
 			extDict[ext] += 1
