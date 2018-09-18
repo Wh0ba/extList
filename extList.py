@@ -2,12 +2,13 @@
 
 import sys
 from os import listdir
-from os.path import isfile, join
+from os.path import isfile, join, isdir
 import os
 
-mypath = os.path.dirname(os.path.abspath(__file__))
+mypath = os.getcwd()
 
 extDict = dict()
+
 if len(sys.argv) > 1 :
 	
 	#tmpPath = os.path.realpath(sys.argv[1])
@@ -16,9 +17,9 @@ if len(sys.argv) > 1 :
 	else:
 		#mypath = os.path.expanduser("~")
 		print "failed to get directory \nSeraching the current directory..."
-		mypath = os.path.dirname(os.path.abspath(__file__))
 else:
 	print "Seraching the current directory..."
+
 
 try:
 	
@@ -26,17 +27,20 @@ try:
 	
 	for filee in filesindir:
 		ext = os.path.splitext(filee)[1].lower()
+		if ext == "" :
+			ext = os.path.splitext(filee)[0].lower()
 		#print ext
 		if ext in extDict:
 			extDict[ext] += 1
 		else:
 			extDict[ext] = 1
 			
-		
 	
 	
+	print "files {"
 	for key, value in extDict.items():
 		print key, value
+	print "}"
 except NameError:
 	print "directory is not valid"
 	sys.exit()
