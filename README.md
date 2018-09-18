@@ -18,4 +18,4 @@ usage `./extList dirPath`
 ```
 
 
-## if no directory is given the tool will search the Dircectory where its files exsist
+## if no directory is given the tool will search the current working dircectory 
