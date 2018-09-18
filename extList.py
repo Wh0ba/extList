@@ -18,7 +18,8 @@ if len(sys.argv) > 1 :
 		#mypath = os.path.expanduser("~")
 		print "failed to get directory \nSeraching the current directory..."
 else:
-	print "Seraching the current directory..."
+	print "usage :\n", __file__, "directoryToList"
+	print "\n\n Seraching the current directory..."
 
 
 try:
